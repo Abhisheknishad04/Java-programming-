@@ -11,24 +11,20 @@ public class LoginApplet extends Applet implements ActionListener {
 
     public void init() {
 
-        setLayout(new FlowLayout());
+        setLayout(new GridLayout(4, 2, 10, 10));
 
-        // Name Field
         nameLabel = new Label("Enter Name:");
-        nameField = new TextField(20);
-
-        // Password Field
         passwordLabel = new Label("Enter Password:");
+
+        nameField = new TextField(20);
         passwordField = new TextField(20);
         passwordField.setEchoChar('*');
 
-        // Buttons
         submitButton = new Button("Submit");
         clearButton = new Button("Clear");
 
         resultLabel = new Label("");
 
-        // Add components
         add(nameLabel);
         add(nameField);
 
@@ -40,7 +36,6 @@ public class LoginApplet extends Applet implements ActionListener {
 
         add(resultLabel);
 
-        // Button Actions
         submitButton.addActionListener(this);
         clearButton.addActionListener(this);
     }
@@ -48,14 +43,10 @@ public class LoginApplet extends Applet implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == submitButton) {
-
-            String name = nameField.getText();
-
-            resultLabel.setText("Welcome " + name);
+            resultLabel.setText("Welcome " + nameField.getText());
         }
 
         if (e.getSource() == clearButton) {
-
             nameField.setText("");
             passwordField.setText("");
             resultLabel.setText("");
